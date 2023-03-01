@@ -1,0 +1,73 @@
+What's new in C++ 14/17 exercises:
+
+C++ 14
+******
+
+1) Create a lambda function that when called like this:
+ 		cout << lambda(5, 7) << endl;     
+ will print 12, but when called like this
+		cout << lambda(string("ABC"), string("DEF")) << endl;
+ will print ABCDEF
+
+2) The following code does not compile:
+ std::unique_ptr<int> p(new int(5));
+ auto lambda = [p]() { std::cout << "inside: " << *p << "\n"; };  
+ lambda();
+   * why?
+   * Change it so it compiles, but WITHOUT capture by reference
+
+3) Write a function to limitedSize that limits the size of an array to 1000
+  Write code, so that the following compile and work correctly
+  int buffer[limitedSize(500)];
+  cout << "buffer size = " << sizeof(buffer)/sizeof(int) << endl; //prints 500
+  int buffer2[limitedSize(1500)];
+  cout << "buffer2 size = " << sizeof(buffer2)/sizeof(int) << endl;//prints1000
+
+4) Correct the following code so that it compiles, and prints 3
+ template<class Collection> ??? getBeginningIter(Collection& c)
+ {
+  return c.begin();
+ }
+ 
+void demo()
+ {
+  vector<int> v1{ 3,2,1 };
+  cout << *getBeginningIter(v1);
+ }
+
+5) Assign the value 5 to a variable, but using its binary form 101
+   print the value to see that you really got 5
+
+
+C++17
+*****
+
+6. Use fold expressions to create a function called bitwiseAndAll that returns 
+   the bitwise And result of an arbitrary number of variables.
+   Create a second function called logicalAndAll that does the same using 
+   logical And ( && )
+
+7. Given this struct 
+   struct S 
+   {
+    int n;
+    std::string s;
+    float d;
+   };
+
+   define your own version of a global function get which will work as follows
+    S s1;
+    int intVal = get<0>(s1);
+    string stringVal = get<1>(s1);
+   
+   Hint: Write only 1 template function, with a non-type template parameter, that returns auto
+
+8. Given this vector of students:
+   struct Student {
+	int id;
+	string name;
+   };
+
+   vector<Student> students = { Student{1,"Gonen"}, Student{2,"Ronen"} };
+   Use structured binding combined with range based loops to iterate over the student list
+   using just 1 line of code, and print each student's id and name. 
