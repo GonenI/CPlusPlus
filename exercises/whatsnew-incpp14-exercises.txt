@@ -71,3 +71,5 @@ C++17
    vector<Student> students = { Student{1,"Gonen"}, Student{2,"Ronen"} };
    Use structured binding combined with range based loops to iterate over the student list
    using just 1 line of code, and print each student's id and name. 
+
+**********************
